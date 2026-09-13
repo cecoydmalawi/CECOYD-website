@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CECOYD - Centre for Concerned Youth in Development. A youth-led organization advancing economic empowerment, education and civic participation in Malawi.">
+<title>CECOYD | Centre for Concerned Youth in Development</title>
+<style>
+:root{
+  --green:#087443; --green2:#0b9658; --gold:#f4b400; --dark:#10251b;
+  --cream:#f7faf7; --white:#fff; --muted:#607267; --border:#e1ebe5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--dark);line-height:1.6;background:#fff}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.5px}
+.logo-mark{width:43px;height:43px;border-radius:12px;background:var(--green);display:grid;place-items:center;color:white;font-size:22px}
+.logo small{display:block;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:1px}
+nav{display:flex;gap:24px;align-items:center;font-weight:650;font-size:14px}
+nav a:hover{color:var(--green)}
+.btn{display:inline-block;padding:12px 20px;border-radius:999px;background:var(--green);color:white;font-weight:800;border:2px solid var(--green);transition:.2s}
+.btn:hover{background:#065b35;transform:translateY(-1px)}
+.btn.secondary{background:transparent;color:var(--green)}
+.menu{display:none;border:0;background:none;font-size:28px}
+
+.hero{background:linear-gradient(120deg,rgba(7,61,41,.97),rgba(8,116,67,.90)),url("assets/cecoyd-photo-2.jpg") center/cover;color:white;padding:90px 0 80px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+.eyebrow{color:#d7f5e4;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:900;margin-bottom:15px}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-3px;margin-bottom:22px}
+.hero p{font-size:18px;max-width:650px;color:#e7f6ed}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero .btn{background:white;color:var(--green);border-color:white}
+.hero .btn.secondary{color:white;background:transparent;border-color:#bce8cf}
+.hero-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:28px;padding:28px;box-shadow:0 25px 70px rgba(0,0,0,.16)}
+.hero-card h3{font-size:22px;margin-bottom:10px}
+.hero-card p{font-size:15px;color:#dff3e7}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.stat{background:rgba(255,255,255,.1);border-radius:16px;padding:16px}
+.stat strong{display:block;font-size:25px}.stat span{font-size:11px;color:#d5eee0}
+
+section{padding:82px 0}
+.section-head{max-width:720px;margin-bottom:42px}
+.kicker{color:var(--green);font-weight:900;text-transform:uppercase;letter-spacing:1.7px;font-size:12px}
+h2{font-size:clamp(30px,4vw,46px);line-height:1.1;letter-spacing:-1.5px;margin:10px 0 14px}
+.lead{color:var(--muted);font-size:17px}
+.about{background:var(--cream)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:white;border:1px solid var(--border);border-radius:22px;padding:27px;box-shadow:0 8px 30px rgba(16,37,27,.05)}
+.icon{width:48px;height:48px;border-radius:14px;background:#e4f5ec;color:var(--green);display:grid;place-items:center;font-size:23px;margin-bottom:18px}
+.card h3{margin-bottom:8px;font-size:21px}.card p{color:var(--muted);font-size:14px}
+
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.project{border-radius:24px;padding:32px;min-height:270px;display:flex;flex-direction:column;justify-content:space-between;background:#103b2a;color:white}
+.project:nth-child(2){background:#f1b72b;color:#152318}
+.project:nth-child(3){background:#e8f4ee;color:var(--dark)}
+.project:nth-child(4){background:#183e63;color:white}
+.project .tag{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;font-weight:900;opacity:.75}
+.project h3{font-size:28px;margin:10px 0}.project p{opacity:.82;max-width:520px;font-size:14px}
+.project a{font-weight:850;margin-top:18px}
+
+.impact{background:var(--green);color:white}
+.impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.impact .lead{color:#d8f0e2}
+.numbers{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.number{padding:24px;border:1px solid rgba(255,255,255,.2);border-radius:20px;background:rgba(255,255,255,.08)}
+.number strong{font-size:34px;display:block}.number span{font-size:13px;color:#d5eee0}
+
+.cta{background:#f7f3e7}
+.cta-box{background:var(--dark);color:white;border-radius:30px;padding:48px;display:flex;justify-content:space-between;gap:30px;align-items:center}
+.cta-box p{color:#cbd9d1;max-width:620px}.cta-box .btn{background:var(--gold);border-color:var(--gold);color:#172016}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.contact-card{border:1px solid var(--border);border-radius:22px;padding:28px}
+.contact-item{margin:18px 0}.contact-item strong{display:block}.contact-item span{color:var(--muted)}
+
+footer{background:#0b1d14;color:#b9c9c0;padding:38px 0}
+.footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:center}
+.footer-brand{color:white;font-weight:900}.socials{display:flex;gap:18px;font-size:14px}.socials a:hover{color:white}
+
+
+.gallery{background:#fff}
+.gallery-grid{display:grid;grid-template-columns:1.25fr .75fr;grid-template-rows:250px 250px;gap:16px}
+.gallery-item{position:relative;overflow:hidden;border-radius:22px;background:#e8eee9}
+.gallery-item:first-child{grid-row:1 / 3}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.gallery-item:hover img{transform:scale(1.035)}
+.gallery-caption{position:absolute;left:16px;right:16px;bottom:14px;background:rgba(8,36,24,.78);color:#fff;border-radius:14px;padding:10px 13px;font-size:13px;font-weight:700;backdrop-filter:blur(6px)}
+
+@media(max-width:800px){
+  nav{display:none}.menu{display:block}
+  .hero{padding:65px 0}.hero-grid,.impact-grid,.contact-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr;grid-template-rows:300px 220px 220px}.gallery-item:first-child{grid-row:auto}
+  .cta-box{display:block;padding:34px}.cta-box .btn{margin-top:22px}
+  .footer-grid{display:block}.socials{margin-top:18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">
+      <img src="assets/cecoyd-logo.jpg" alt="CECOYD logo" style="width:48px;height:48px;object-fit:contain;border-radius:10px">
+      <span>CECOYD<small>YOUTH • DEVELOPMENT • MALAWI</small></span>
+    </a>
+    <nav>
+      <a href="#about">About</a><a href="#focus">Focus Areas</a><a href="#programmes">Programmes</a><a href="#impact">Impact</a>
+      <a href="#contact">Contact</a><a class="btn" href="#contact">Get Involved</a>
+    </nav>
+    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">Changing Community for the Better</div>
+<h1>Empowering young people to shape their future.</h1>
+<p>Centre for Concerned Youth in Development (CECOYD) is a Malawian youth-focused, non-governmental, non-profit and non-political local organization working to improve the socio-economic status of rural youth.</p>
+<div class="hero-actions"><a class="btn" href="#programmes">Explore our work</a><a class="btn secondary" href="#contact">Partner with CECOYD</a></div>
+</div>
+<div class="hero-card">
+<h3>Youth • Opportunity • Action</h3>
+<p>CECOYD exists to ensure, enable and empower young people to become vibrant, self-reliant and active contributors to their families, communities and nation.</p>
+<div class="stats">
+<div class="stat"><strong>2014</strong><span>Established</span></div>
+<div class="stat"><strong>200+</strong><span>Young people facilitated back to school since 2017</span></div>
+<div class="stat"><strong>40+</strong><span>Active youth clubs & groups</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="container">
+<div class="section-head"><div class="kicker">Who we are</div><h2>Rooted in communities. Led by youth.</h2>
+<p class="lead">CECOYD was established in 2014 and registered with the Malawi Government under the Trustees Incorporation Act 2000 in 2016. The organization aims to improve the socio-economic status of rural youth so they can be responsible, accountable and economically independent through sustainable use of locally available resources.</p></div>
+<div class="cards">
+<article class="card"><div class="icon">◎</div><h3>Mission</h3><p>To ensure vibrant youth who can participate in all aspects of socio-economic development through collaboration with other development stakeholders.</p></article>
+<article class="card"><div class="icon">◇</div><h3>Vision</h3><p>Youth who are socially and economically empowered and can effectively contribute positively to the socio-economic activities of their families, communities and nation.</p></article>
+<article class="card"><div class="icon">✦</div><h3>Core values</h3><p>Heart & passion; Voice, Head & Action; Human Rights; Empowerment; Responsibility; Dialogue & Cooperation; Partnership; and Legitimacy.</p></article>
+</div>
+</div>
+</section>
+
+<section id="focus">
+<div class="container">
+<div class="section-head"><div class="kicker">Our focus</div><h2>Seven critical areas of youth development.</h2></div>
+<div class="cards">
+<article class="card"><div class="icon">01</div><h3>Education</h3><p>Formal and informal education, motivational talks, leadership workshops and support for school-going young people.</p></article>
+<article class="card"><div class="icon">02</div><h3>Health</h3><p>Preventive health, sexual and reproductive health and rights, youth-friendly health engagement and community awareness.</p></article>
+<article class="card"><div class="icon">03</div><h3>Agriculture & Entrepreneurship</h3><p>Youth farming clubs, agri-business entrepreneurship, skills development, cooperatives and access to enterprise opportunities.</p></article>
+<article class="card"><div class="icon">04</div><h3>Environment</h3><p>Environmental education, conservation, tree planting, regeneration and community clean-up initiatives.</p></article>
+<article class="card"><div class="icon">05</div><h3>Democracy</h3><p>Youth participation, civic education, political debates, voting awareness and public accountability.</p></article>
+<article class="card"><div class="icon">06</div><h3>Human Rights</h3><p>Rights awareness and strengthening the voice and participation of young people and minority groups.</p></article>
+<article class="card"><div class="icon">07</div><h3>Participation</h3><p>Dialogue, interface meetings, panel discussions and platforms where youth concerns can be raised with stakeholders.</p></article>
+<article class="card"><div class="icon">R</div><h3>Research & Learning</h3><p>The Youth Development and Agricultural Research Centre (YDAR-Centre) supports youth-centred research and student research or practicum.</p></article>
+</div>
+</div>
+</section>
+
+<section class="programs" id="programmes">
+<div class="container">
+<div class="section-head"><div class="kicker">Programmes & platforms</div><h2>Turning youth potential into practical opportunity.</h2>
+<p class="lead">CECOYD combines education, economic empowerment, civic participation, research, health and environmental action with collaboration across communities and development stakeholders.</p></div>
+<div class="projects">
+<article class="project"><div><span class="tag">Education</span><h3>YESE</h3><p>Youth Economic Empowerment through Supportive Education has facilitated more than 200 children and young people back to primary and secondary school since 2017. The programme has also supported deserving youth pursuing fields including engineering, commerce, health, education, agriculture, social work and youth development.</p></div><a href="#contact">Support education →</a></article>
+<article class="project"><div><span class="tag">Agriculture & enterprise</span><h3>Youth Soybean & Agribusiness</h3><p>Since 2021, CECOYD has worked with SunHawk Energy International and LUANAR on youth soybean production and value addition, alongside youth farming clubs, agribusiness entrepreneurship and cooperative development.</p></div><a href="#contact">Partner on enterprise →</a></article>
+<article class="project"><div><span class="tag">Research</span><h3>YDAR-Centre</h3><p>The Youth Development and Agricultural Research Centre supports youth-centred research on issues affecting rural communities and hosts students from universities and colleges for research work and practicum.</p></div><a href="#contact">Collaborate on research →</a></article>
+<article class="project"><div><span class="tag">Civic leadership</span><h3>Youth Voice & Participation</h3><p>CECOYD trains civic educators and youth leaders and facilitates debates, interface meetings and community platforms that enable young people to speak out, participate and demand transparent and accountable development.</p></div><a href="#contact">Engage young leaders →</a></article>
+</div>
+</div>
+</section>
+
+<section class="impact" id="impact">
+<div class="container impact-grid">
+<div><div class="kicker" style="color:#bfead0">Our track record</div><h2>Practical action across communities.</h2>
+<p class="lead">The organization profile documents sustained work in education, informal learning, democracy, human rights, health, agriculture, entrepreneurship and environmental action.</p></div>
+<div class="numbers">
+<div class="number"><strong>200+</strong><span>Children and young people facilitated back to school since 2017.</span></div>
+<div class="number"><strong>40+</strong><span>Active youth clubs and groups across the Senior Chief Kalolo area.</span></div>
+<div class="number"><strong>22</strong><span>Civic educators trained through YESE in 2019.</span></div>
+<div class="number"><strong>420</strong><span>Tree seedlings provided in 2017 to Mdzobwe CDSS and the Roman Catholic Church.</span></div>
+</div>
+</div>
+</section>
+
+<section class="about" id="milestones">
+<div class="container">
+<div class="section-head"><div class="kicker">Selected milestones</div><h2>A history of youth-led action.</h2></div>
+<div class="projects">
+<article class="project"><div><span class="tag">2014–2016</span><h3>Foundation</h3><p>CECOYD was established in 2014 and registered as a local organization under the Trustees Incorporation Act 2000 in 2016.</p></div></article>
+<article class="project"><div><span class="tag">2017–2019</span><h3>Education & civic action</h3><p>CECOYD expanded school support, civic education, youth leadership training, democracy participation, environmental campaigns and community awareness.</p></div></article>
+<article class="project"><div><span class="tag">2021 onward</span><h3>Agriculture & value addition</h3><p>CECOYD worked with SunHawk Energy International and LUANAR to recruit and train young people in soybean production and value addition.</p></div></article>
+<article class="project"><div><span class="tag">Community health</span><h3>Health & rights</h3><p>CECOYD engages youth on SRHR and health issues and works with youth clubs and health service centres to promote preventive health and participation.</p></div></article>
+</div>
+</div>
+</section>
+
+
+<section class="gallery" id="stories">
+<div class="container">
+<div class="section-head">
+<div class="kicker">CECOYD in action</div>
+<h2>Young people. Communities. Action on the ground.</h2>
+<p class="lead">A glimpse of CECOYD's work in youth enterprise, agriculture, community engagement and partnership spaces.</p>
+</div>
+<div class="gallery-grid">
+<div class="gallery-item"><img src="assets/cecoyd-photo-1.jpg" alt="CECOYD team and youth enterprise exhibition"><div class="gallery-caption">Showcasing youth-led innovation and soybean value addition</div></div>
+<div class="gallery-item"><img src="assets/cecoyd-photo-2.jpg" alt="Youth and field team in soybean field"><div class="gallery-caption">Youth agriculture and soybean production</div></div>
+<div class="gallery-item"><img src="assets/cecoyd-photo-3.jpg" alt="Community field monitoring activity"><div class="gallery-caption">Field engagement and agricultural monitoring</div></div>
+<div class="gallery-item"><img src="assets/cecoyd-photo-4.jpg" alt="Young woman in soybean field"><div class="gallery-caption">Young people at the centre of development</div></div>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="container"><div class="cta-box"><div><h2>Let's build with young people.</h2><p>We welcome collaboration with government, civil society, academia, development partners, communities and the private sector.</p></div><a class="btn" href="#contact">Start a conversation</a></div></div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="section-head"><div class="kicker">Contact CECOYD</div><h2>Let's work together.</h2><p class="lead">Connect with CECOYD for partnerships, youth programmes, research, education support and community initiatives.</p></div>
+<div class="contact-grid">
+<div class="contact-card"><div class="contact-item"><strong>Postal address</strong><span>P.O. Box 411, Namitete, Lilongwe, Malawi</span></div>
+<div class="contact-item"><strong>Office location</strong><span>After Msundwe Trading Centre, approximately 1.5 km before the twin transmitter towers. Msundwe Trading Centre is about 35 km from Lilongwe City along the Lilongwe–Mchinji Road.</span></div></div>
+<div class="contact-card"><div class="contact-item"><strong>Phone</strong><span>+265 (0) 997 009 024<br>+265 (0) 888 065 257</span></div>
+<div class="contact-item"><strong>Email</strong><span><a href="mailto:cecoyd@gmail.com">cecoyd@gmail.com</a></span></div>
+<div class="contact-item"><strong>Social media</strong><span>Facebook: Centre for Concerned Youth in Development<br>Instagram / X: CECOYD</span></div></div>
+</div>
+</div>
+</section>
+</main>
+
+
+<footer>
+  <div class="container footer-grid">
+    <div><div class="footer-brand">CECOYD</div><div>Centre for Concerned Youth in Development</div></div>
+    <div class="socials"><a href="#about">About</a><a href="#programmes">Programmes</a><a href="#contact">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  const nav=document.querySelector('nav');
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  nav.style.position='absolute'; nav.style.top='76px'; nav.style.left='0'; nav.style.right='0';
+  nav.style.background='#fff'; nav.style.padding='20px'; nav.style.flexDirection='column';
+  nav.style.borderBottom='1px solid #e1ebe5';
+}
+</script>
+</body>
+</html>
